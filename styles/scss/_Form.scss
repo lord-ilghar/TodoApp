@@ -1,0 +1,48 @@
+form {
+  textarea {
+    width: 100%;
+    resize: vertical;
+    max-height: 30em;
+    min-height: 20em;
+    // @extend input;
+    padding: 0.4em;
+    border-radius: 1em;
+    border: 1px solid black;
+    margin-top: 0.3em;
+    @extend input:focus;
+  }
+  background-color: $co-3;
+  border-radius: 0.5em;
+  padding: 0.4em;
+  box-shadow: 0 0 8px 2px rgba($color: #000000, $alpha: 0.4);
+  label {
+    display: block;
+    margin-top: 0.4em;
+  }
+  input {
+    margin-top: 0.3em;
+    width: 90%;
+    border: none;
+    border: 1px solid black;
+    border-radius: 0.4em;
+    padding: 0.3em;
+    &:focus {
+      outline: none;
+    }
+  }
+  .submit {
+    margin-top: 2em;
+    padding: 0.4em;
+    width: 50%;
+    border: none;
+    border-radius: 0.4em;
+    background-color: $co-2;
+  }
+}
+.form-conatiner {
+  padding: 1em;
+}
+.submit-container {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,30 @@
+.card {
+  padding: 1em;
+  width: 90%;
+  background: $co-3;
+  margin: 1em auto;
+  border-radius: 1em;
+  box-shadow: 0 0 8px 2px rgba($color: #000000, $alpha: 0.5);
+  h2 {
+    font-family: "Poppins", sans-serif;
+  }
+  .card-header {
+    padding: 0.5em;
+    p {
+      font-weight: bolder;
+    }
+    div {
+      color: $title-co;
+      font-weight: bolder;
+      text-align: center;
+    }
+  }
+  .label-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    input {
+      margin-left: 2em;
+    }
+  }
+}
