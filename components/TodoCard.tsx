@@ -1,4 +1,9 @@
-import { ChangeEventHandler, FunctionComponent } from "react";
+import {
+  ChangeEventHandler,
+  CSSProperties,
+  FunctionComponent,
+  useState,
+} from "react";
 
 interface Props {
   title: string;
@@ -15,6 +20,14 @@ const Todocard: FunctionComponent<Props> = ({
   des,
   _id,
 }) => {
+  const [clicked, setClicked] = useState<boolean>(isDoing);
+  const [isDoneclicked, setisDoneClicked] = useState<boolean>(done);
+  const [isDoingstyle, setisDoing] = useState<CSSProperties>({
+    background: isDoing && clicked ? "#ee5a24" : "black",
+  });
+  const [isDoneStyle, setisDoneStyle] = useState<CSSProperties>({
+    background: done && isDoneclicked ? "#ee5a24" : "black",
+  });
   return (
     <div className="card">
       <div className="card-header">
@@ -25,44 +38,48 @@ const Todocard: FunctionComponent<Props> = ({
       </div>
       <div className="label-container">
         <div>
-          <label htmlFor="isdoingcheck">isdoingcheck</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="isdoingcheck"
-            defaultChecked={isDoing}
-            onChange={(event) => {
+          <label
+            style={isDoingstyle}
+            onClick={() => {
+              setClicked(!clicked);
+              setisDoing({ background: clicked ? "#ee5a24" : "black" });
+              console.log(clicked);
+
               fetch(`/api/update/isdoing/${_id}`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ isDoing: event.target.checked }),
+                body: JSON.stringify({ isDoing: !isDoing }),
               });
             }}
-          />
+          >
+            isdoingcheck
+          </label>
         </div>
+        {/* <input /> */}
       </div>
       <div className="label-container">
         <div>
-          <label htmlFor="DoneCheck">Done</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="DoneCheck"
-            defaultChecked={done}
-            onChange={(event) => {
+          <label
+            style={isDoneStyle}
+            onClick={() => {
+              setisDoneClicked(!isDoneclicked);
+              setisDoneStyle({
+                background: isDoneclicked ? "#ee5a24" : "black",
+              });
+
               fetch(`/api/update/isDone/${_id}`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ done: event.target.checked }),
+                body: JSON.stringify({ done: !done }),
               });
             }}
-          />
+          >
+            Done
+          </label>
         </div>
       </div>
     </div>

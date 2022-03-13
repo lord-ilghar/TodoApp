@@ -1,5 +1,6 @@
 import { GetStaticPathsResult, GetStaticPropsResult } from "next";
 
+import Link from "next/link";
 import Head from "next/head";
 import NoContent from "../components/NoContent";
 import Card from "./../components/TodoCard";
@@ -15,6 +16,13 @@ function Home({ data }: IProp) {
         <title>Home</title>
       </Head>
       <Header title="Home" />
+      <div className=" section-breaker">
+        this is todo app created by lord-ilghar with using nextJS! nedb and scss
+      </div>
+      <div className="section-breaker">
+        <span className="you">YOU</span> can start using the app with following{" "}
+        <Link href="/Todos/Add">This link</Link>
+      </div>
       {data.length <= 0 ? (
         <NoContent
           des="it looks like you dont have any todos"
@@ -22,18 +30,26 @@ function Home({ data }: IProp) {
           links={[{ title: "Add todto", link: "/Todos/Add" }]}
         />
       ) : (
-        data.map((value) => {
-          return (
-            <Card
-              key={value._id}
-              isDoing={value.isDoing}
-              done={value.done}
-              title={value.title}
-              des={value.des}
-              _id={value._id}
-            />
-          );
-        })
+        <div>
+          <div className="section-breaker">
+            <h3>
+              Oh and here is some unFinished TODOS for{" "}
+              <span className="you">YOU</span>!
+            </h3>
+          </div>
+          {data.map((value) => {
+            return (
+              <Card
+                key={value._id}
+                isDoing={value.isDoing}
+                done={value.done}
+                title={value.title}
+                des={value.des}
+                _id={value._id}
+              />
+            );
+          })}
+        </div>
       )}
     </>
   );

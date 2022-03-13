@@ -27,11 +27,28 @@ header {
   padding: 0.4em;
 }
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
   font-family: "Pacifico", cursive;
   font-weight: bolder;
+}
+input[type="checkbox"] {
+  display: none;
+}
+.card label {
+  color: white;
+  padding: 0.3em;
+  border-radius: 0.5em;
+}
+.card {
+  max-width: 40em;
+}
+.section-breaker {
+  width: 100%;
+  padding: 1em;
+  margin-top: 0;
+}
+.you {
+  color: gold;
+  text-shadow: 0 0 1em black;
+  filter: drop-shadow(0 0 1em black);
 }

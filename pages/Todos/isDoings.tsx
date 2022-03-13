@@ -33,6 +33,8 @@ const isDoings: FunctionComponent<Props> = ({ data }) => {
       ) : (
         <section className="card-container">
           {data.map((value: Data) => {
+            console.log(value.done);
+
             return (
               <Card
                 _id={value._id}
