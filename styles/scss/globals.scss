@@ -26,8 +26,7 @@ header {
   text-align: center;
   padding: 0.4em;
 }
-h1,
-h2 {
+h1 {
   font-family: "Pacifico", cursive;
   font-weight: bolder;
 }
@@ -45,7 +44,8 @@ input[type="checkbox"] {
 .section-breaker {
   width: 100%;
   padding: 1em;
-  margin-top: 0;
+  margin: 1em auto;
+  max-width: 40em;
 }
 .you {
   color: gold;

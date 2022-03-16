@@ -8,7 +8,9 @@
   align-items: center;
   padding: 0.4em;
   text-transform: capitalize;
+  direction: rtl;
   ul {
+    direction: ltr;
     display: flex;
     flex-direction: row-reverse;
     a {
